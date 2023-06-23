@@ -6,7 +6,6 @@ from django.contrib.auth.models import User  # Used as our base User Model
 
 class ExtendedUser(models.Model):
     user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
-    # productsLiked
 
 
 class Item(models.Model):
@@ -21,3 +20,7 @@ class LikedItems(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
 
+
+class Basket(models.Model):
+    user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
+    items = models.ManyToManyField(Item)
