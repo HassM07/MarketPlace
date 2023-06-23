@@ -13,4 +13,4 @@ class Message(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.SET_NULL, null=True)
     createdAt = models.DateTimeField(auto_now_add=True)
     content = models.TextField(null=False, default='')
-    
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
