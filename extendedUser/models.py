@@ -10,6 +10,9 @@ class ExtendedUser(models.Model):
     def __str__(self):
         return self.user.get_username()
 
+    def get_user(self):
+        return self.user
+
 
 class Item(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
@@ -22,6 +25,27 @@ class Item(models.Model):
     def __str__(self):
         return self.title
 
+    def get_user(self):
+        return self.user
+
+    def get_price(self):
+        return self.price
+
+    def set_price(self, price):
+        self.price = price
+
+    def get_title(self):
+        return self.title
+
+    def set_title(self, title):
+        self.title = title
+
+    def get_description(self):
+        return self.description
+
+    def set_description(self, description):
+        self.description = description
+
 
 class LikedItems(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
@@ -30,6 +54,12 @@ class LikedItems(models.Model):
     def __str__(self):
         return f"{self.user.user.get_username()} Liked {self.item.title}"
 
+    def get_user(self):
+        return self.user
+
+    def get_item(self):
+        return self.item
+
 
 class Basket(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
@@ -37,3 +67,9 @@ class Basket(models.Model):
 
     def __str__(self):
         return f"{self.user.user.get_username()}'s Basket"
+
+    def get_user(self):
+        return self.user
+
+    def get_items(self):
+        return self.items
