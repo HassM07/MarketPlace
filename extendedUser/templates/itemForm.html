@@ -1,6 +1,6 @@
 {% include 'Navbar/navbar.html' %}
 <form method="post">
   {% csrf_token %}
-  {{ extendedUser_form.as_p }}
+  {{ item_form.as_p }}
   <button type="submit">Submit</button>
 </form>
