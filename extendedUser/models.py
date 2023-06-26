@@ -6,6 +6,7 @@ from django.contrib.auth.models import User  # Used as our base User Model
 
 class ExtendedUser(models.Model):
     user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
+    test = models.CharField(max_length=128, null=True)
 
     def __str__(self):
         return self.user.get_username()
