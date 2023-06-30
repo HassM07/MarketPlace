@@ -1,4 +1,6 @@
-{% include 'Navbar/navbar.html' %}
+{% extends 'base.html' %}
+
+{% block main %}
 <h1>Main Home</h1>
 <br><br>
 <a href="/users">Users</a>
@@ -6,3 +8,4 @@
 <a href="/chat">Chat</a>
 <br><br>
 <a href="/admin">admin</a>
+{% endblock main %}

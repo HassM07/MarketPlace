@@ -1,6 +1,8 @@
-{% include 'Navbar/navbar.html' %}
+{% extends 'base.html' %}
+{% block main %}
 <form method="post">
   {% csrf_token %}
   {{ item_form.as_p }}
   <button type="submit">Submit</button>
 </form>
+{% endblock main %}
