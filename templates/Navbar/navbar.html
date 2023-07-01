@@ -9,8 +9,13 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'user_home' %}">User</a></li>
                 <li><a href={% url 'chat_home' %}>Chat</a></li>
-                <li><a href="{% url 'user_register' %}">Create user</a></li>
-                <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                {% if not request.user.is_authenticated %}
+                    <li><a href="{% url 'user_register' %}">Create user</a></li>
+                    <li><a href=" {% url 'user_login' %} ">Login</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>

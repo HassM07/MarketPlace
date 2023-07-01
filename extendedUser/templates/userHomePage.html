@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% block main %}
 <h1>Users Main</h1>
+    {% if messages %}
+        <ul style="list-style: none;">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 <a href="create">Create</a>
 <br>
 <a href="createItem">Create Item</a>
+    <br>
+    <a href="login">Login</a>
 {% endblock main %}

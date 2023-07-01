@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background: white;
+    background: #cdd5d4;
     border-radius: 10px;
 }
 .form-button {
@@ -18,7 +18,7 @@
     transition: 0.5s;
 }
 .form-button:hover {
-    background-color: #3e3ee1;
+    background-color: #a1dcdc;
 }
 .form-content h2{
     text-align: center;
@@ -53,6 +53,6 @@
 .form-content input:focus + label,
 .form-content input:valid + label {
   top: -7px;
-  color: blue;
+  color: #61969d;
 }
 
