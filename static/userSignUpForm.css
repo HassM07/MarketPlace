@@ -4,7 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background: #cdd5d4;
+    background: #000000;
     border-radius: 10px;
 }
 .form-button {
@@ -14,11 +14,11 @@
     border: 1px solid;
     margin-bottom: 10px;
     margin-left: 15px;
-    background-color: deepskyblue;
+    background-color: #ffffff;
     transition: 0.5s;
 }
 .form-button:hover {
-    background-color: #a1dcdc;
+    background-color: #999d9d;
 }
 .form-content h2{
     text-align: center;
@@ -39,12 +39,13 @@
     border: none;
     background: none;
     outline: none;
+    color:white;
 }
 .form-content form label{
     position: absolute;
     top: 50%;
     left: 5px;
-    color: darkgrey;
+    color: #a8a7a7;
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
@@ -53,6 +54,6 @@
 .form-content input:focus + label,
 .form-content input:valid + label {
   top: -7px;
-  color: #61969d;
+  color: #ffffff;
 }
 
