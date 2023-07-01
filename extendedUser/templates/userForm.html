@@ -1,8 +1,26 @@
 {% extends 'base.html' %}
+
+
 {% block main %}
-<form method="post">
-  {% csrf_token %}
-  {{ extendedUser_form.as_p }}
-  <button type="submit">Submit</button>
-</form>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'userSignUpForm.css' %}">
+    <div class="form-content">
+        <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in user_form %}
+                <p>
+                    {{ field }}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                </p>
+            {% endfor %}
+            {% for field in extendedUser_form %}
+                <p>
+                    {{ field }}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                </p>
+            {% endfor %}
+            <button type="submit" class="form-button">Sign Up</button>
+        </form>
+    </div>
 {% endblock main %}
