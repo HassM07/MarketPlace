@@ -15,7 +15,7 @@ class ExtendedUserForm(forms.ModelForm):
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['user', 'price', 'title', 'description']
+        fields = ['price', 'title', 'description']
 
 
 class NewUserCreationForm(UserCreationForm):

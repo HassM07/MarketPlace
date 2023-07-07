@@ -33,17 +33,31 @@ def user_register(request):
 
 
 def create_item(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'You need to be logged in to create an item')
+        return redirect('user_home')
+
     if request.method == 'POST':
         form = ItemForm(request.POST)
         if form.is_valid():
-            form.save()
-        return redirect('user_home')
+            user = ExtendedUser.objects.get(user=request.user)
+            price = form.cleaned_data['price']
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['title']
+            Item.objects.create(user=user, price=price, title=title, description=description)
+
+            messages.success(request, 'Item created')
+            return redirect('user_home')
     else:
         form = ItemForm()
     return render(request, 'itemForm.html', {'item_form': form})
 
 
 def user_logout(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'You are not logged in already')
+        return redirect('user_home')
+
     logout(request)
     messages.success(request, 'Logged out')
     return redirect('user_home')

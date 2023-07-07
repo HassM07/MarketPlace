@@ -21,7 +21,7 @@ class Item(models.Model):
     title = models.CharField(max_length=128, null=False)
     description = models.TextField(null=True, default='')
 
-    # ToDo Images
+    # ToDo Images and categories
 
     def __str__(self):
         return self.title
