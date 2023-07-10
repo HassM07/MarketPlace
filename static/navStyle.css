@@ -17,6 +17,7 @@ body {
 
 header {
     background: #000000;
+    border-radius: 10px;
 }
 
 header::after {
@@ -32,6 +33,9 @@ header::after {
     padding-bottom: 10px;
     padding-left: 20px;
     font-size: 20px;
+}
+.logo:hover {
+    color: #999d9d;
 }
 
 nav {
