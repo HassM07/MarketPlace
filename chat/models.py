@@ -1,5 +1,7 @@
 from django.db import models
+from django.utils import timezone
 from extendedUser.models import ExtendedUser, Item
+from django.urls import reverse
 # Create your models here.
 
 
@@ -7,6 +9,11 @@ class Chat(models.Model):
     users = models.ManyToManyField(ExtendedUser)
     createdAt = models.DateTimeField(auto_now_add=True)
     item = models.ForeignKey(Item, null=True, on_delete=models.SET_NULL)
+    title = models.CharField(max_length=128, null=False)
+    latestInteraction = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.get_title()
 
     def get_users(self):
         return self.users
@@ -16,6 +23,12 @@ class Chat(models.Model):
 
     def get_item(self):
         return self.item
+
+    def get_title(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("chat_view", kwargs={'chat_id': self.id})
 
 
 class Message(models.Model):

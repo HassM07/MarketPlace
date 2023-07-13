@@ -1,0 +1,65 @@
+.message-form{
+    display: flex;
+    padding-left: .5em;
+    padding-right: .5em;
+    position: absolute;
+}
+
+.message-form textarea{
+    resize: none;
+    height: 2.6em;
+    width: 69em;
+    text-decoration: none;
+    border-radius: .5em;
+    display: inline;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+.message-form p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.message-form button {
+    border-radius: .5em;
+    height: 4.5em;
+    width: 9em;
+    display: inline;
+    transition: 0.5s;
+    background-color: #ffffff;
+}
+
+.message-form button:hover {
+    background-color: #999d9d;
+}
+
+.message-content-user {
+    color: black;
+    margin-right: .5em;
+    align-self: flex-end;
+    background-color: #a4e067;
+    width: fit-content;
+    max-width: 800px;
+    height: fit-content;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: .5em;
+
+}
+
+.message-content-other {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: #79adcc;
+    width: fit-content;
+    max-width: 800px;
+    height: fit-content;
+    color: black;
+    margin-left: .5em;
+    border-radius: .5em;
+}
+
+.message {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    word-wrap: break-word;
+}
