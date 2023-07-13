@@ -1,0 +1,47 @@
+.item-form {
+    color: white;
+}
+
+.item-form textarea{
+    resize: none;
+    border-radius: .5em;
+    height: 10em;
+    width: 25em;
+}
+.item-form input{
+    border-radius: .5em;
+}
+.title {
+    width: 25em;
+}
+.item-form button {
+    border-radius: .5em;
+    height: 4.5em;
+    width: 11em;
+    display: inline;
+    transition: 0.5s;
+    background-color: #ffffff;
+    margin-left: 6.5em;
+}
+
+.item-form button:hover {
+    background-color: #999d9d;
+}
+
+.item-form input::-webkit-outer-spin-button,
+.item-form input::-webkit-inner-spin-button {
+    display: none;
+}
+
+.form-holder {
+    background-color: black;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30em;
+    height: 25em;
+    justify-content: center;
+    border-radius: .5em;
+}

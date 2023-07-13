@@ -15,7 +15,12 @@ class ExtendedUserForm(forms.ModelForm):
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['user', 'price', 'title', 'description']
+        widgets = {
+            'price': forms.NumberInput(),
+            'title': forms.TextInput(attrs={'class': 'title'}),
+            'description': forms.Textarea(attrs={})
+        }
+        fields = ['price', 'title', 'description']
 
 
 class NewUserCreationForm(UserCreationForm):
