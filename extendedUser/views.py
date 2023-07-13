@@ -55,7 +55,7 @@ def create_item(request):
 
 def user_logout(request):
     if not request.user.is_authenticated:
-        messages.error(request, 'You are not logged in already')
+        messages.error(request, 'You are not logged')
         return redirect('user_home')
 
     logout(request)

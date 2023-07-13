@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% block main %}
-<form method="post">
-  {% csrf_token %}
-  {{ item_form.as_p }}
-  <button type="submit">Submit</button>
-</form>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'itemCreateStyle.css' %}">
+
+    <div class="form-holder">
+        <form class="item-form" method="post">
+            {% csrf_token %}
+            {% for field in item_form %}
+                <p>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    <br>
+                    {{ field }}
+                </p>
+            {% endfor %}
+            <button type="submit">Create</button>
+        </form>
+    </div>
 {% endblock main %}
