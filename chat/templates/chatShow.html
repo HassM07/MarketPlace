@@ -1,5 +1,29 @@
 {% extends 'chatHome.html' %}
 
 {% block chat %}
-    <p style="color: white; padding-left: 10px">{{ mainChat.id }}</p>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'chatShowStyle.css' %}">
+
+    <form class="message-form" method="post">
+        {% csrf_token %}
+        {% for field in message_form %}
+            <p>
+                {{ field }}
+                <label for="{{ field.id_for_label }}" placeholder=" "></label>
+            </p>
+        {% endfor %}
+        <button type="submit">Send</button>
+    </form>
+    <br><br><br><br>
+    {% for message in messages %}
+        {% if user == message.user %}
+            <div class="message-content-user">
+                <div class="message">{{ message.content }}</div>
+            </div>
+        {% else %}
+            <div class="message-content-other">
+                <div class="message">{{ message.content }}</div>
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endblock chat %}

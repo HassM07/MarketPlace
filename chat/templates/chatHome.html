@@ -3,18 +3,25 @@
 {% block main %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'chatHomeStyle.css' %}">
-    <div class="chat-box">
-        <div class="chat-container">
-        {% for chat in chats %}
-            <div class="chat-anchor">
-                <a href="{{ chat.get_absolute_url }}">{{ chat.title }}</a>
-            </div>
-        {% endfor %}
-    </div>
 
-    <div class="chat-body">
-        {% block chat %}
-        {% endblock chat %}
-    </div>
+    <div class="chat-box">
+
+        <div class="chat-container">
+            {% if mainChat is defined %}
+                <div class="current-chat">  Please Select A Chat</div>
+            {% else %}
+                <div class="current-chat"> Current chat: {{ mainChat.title }} </div>
+            {% endif %}
+            {% for chat in chats %}
+                <div class="chat-anchor">
+                    <a href="{{ chat.get_absolute_url }}">{{ chat.title }}</a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="chat-body">
+            {% block chat %}
+            {% endblock chat %}
+        </div>
     </div>
 {% endblock main %}

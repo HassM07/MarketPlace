@@ -37,7 +37,7 @@ def create_item(request):
         form = ItemForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('user_home')
+            return redirect('user_home')
     else:
         form = ItemForm()
     return render(request, 'itemForm.html', {'item_form': form})
